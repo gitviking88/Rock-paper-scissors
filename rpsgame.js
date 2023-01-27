@@ -20,11 +20,11 @@ function playRound(playerSelection, computerSelection) {
         (computerSelection === "scissors" && playerSelection === "paper") 
         )
         {
-        return "You lose";
+        return "You lose," + " " + computerSelection + " beats " + playerSelection + "."
         }
-    else if (computerSelection === "scissors" && playerSelection === "rock")
+    else
     {
-        return "Congratulations, You Win!"    
+        return "Congratulations, You Win," + " " + playerSelection + " " + "beats" + " " + computerSelection +".";
     }
     }
    
