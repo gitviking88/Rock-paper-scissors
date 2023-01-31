@@ -2,38 +2,32 @@ function getComputerChoice() {
     const options = ["Rock", "Paper", "Scissors"];
     const randomIndex = Math.floor(Math.random() * options.length);
     return options[randomIndex];
-    
 }
-
-const playerSelection = prompt("Choose Rock, Paper or Scissors").toLowerCase();
-const computerSelection = getComputerChoice().toLowerCase();
-console.log(computerSelection);
-console.log(playerSelection);
 
 function playRound(playerSelection, computerSelection) {
     
     if (computerSelection === playerSelection) {
      return "it's a tie"; 
-    } else if (
+        } else if (
         (computerSelection === "paper" && playerSelection === "rock") || 
         (computerSelection === "rock" && playerSelection === "scissors") || 
         (computerSelection === "scissors" && playerSelection === "paper") 
         )
         {
         return "You Lose," + " " + computerSelection + " beats " + playerSelection + "."
+        } else {
+        return "You Win," + " " + playerSelection + " beats " + computerSelection +".";
         }
-    else
-    {
-        return "Congratulations, You Win," + " " + playerSelection + " beats " + computerSelection +".";
-    }
-    }
-   
-  console.log(playRound(playerSelection, computerSelection));
+        }
 
 function game() {
   let scorePlayer = 0;
   let scoreComputer = 0;   
   for (let i = 0; i < 5; i++) {
+    const playerSelection = prompt("Choose Rock, Paper or Scissors").toLowerCase();
+    const computerSelection = getComputerChoice().toLowerCase();
+    console.log(playerSelection);
+    console.log(computerSelection);
     let winner = playRound(playerSelection, computerSelection);
     console.log(winner);
     if (winner.charAt(4) === "W") {
@@ -41,16 +35,15 @@ function game() {
     } else if (winner.charAt(4) === "L") {
         scoreComputer++;
   }
+
 }
  if (scorePlayer === scoreComputer) {
-    return "You are tied";
+    console.log("You are tied, your score is" + scorePlayer + " and the computer score is " + scoreComputer);
  } else if (scorePlayer > scoreComputer) {
-    return "You are the winner";
+    console.log("You are the winner, your score is " + scorePlayer + " and the computer score is " + scoreComputer);
  } else {
-    return "You have lost the game";
- }
-
+    console.log("You have lost the game, your score is " + scorePlayer + " and the computer score is " + scoreComputer);
 } 
+}
 
-game();
-console.log(game);
+console.log(game());
