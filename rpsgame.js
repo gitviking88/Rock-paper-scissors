@@ -5,7 +5,7 @@ function getComputerChoice() {
     
 }
 
-const playerSelection = "Rock".toLowerCase();
+const playerSelection = prompt("Choose Rock, Paper or Scissors").toLowerCase();
 const computerSelection = getComputerChoice().toLowerCase();
 console.log(computerSelection);
 console.log(playerSelection);
@@ -20,12 +20,37 @@ function playRound(playerSelection, computerSelection) {
         (computerSelection === "scissors" && playerSelection === "paper") 
         )
         {
-        return "You lose," + " " + computerSelection + " beats " + playerSelection + "."
+        return "You Lose," + " " + computerSelection + " beats " + playerSelection + "."
         }
     else
     {
-        return "Congratulations, You Win," + " " + playerSelection + " " + "beats" + " " + computerSelection +".";
+        return "Congratulations, You Win," + " " + playerSelection + " beats " + computerSelection +".";
     }
     }
    
   console.log(playRound(playerSelection, computerSelection));
+
+function game() {
+  let scorePlayer = 0;
+  let scoreComputer = 0;   
+  for (let i = 0; i < 5; i++) {
+    let winner = playRound(playerSelection, computerSelection);
+    console.log(winner);
+    if (winner.charAt(4) === "W") {
+        scorePlayer++;
+    } else if (winner.charAt(4) === "L") {
+        scoreComputer++;
+  }
+}
+ if (scorePlayer === scoreComputer) {
+    return "You are tied";
+ } else if (scorePlayer > scoreComputer) {
+    return "You are the winner";
+ } else {
+    return "You have lost the game";
+ }
+
+} 
+
+game();
+console.log(game);
